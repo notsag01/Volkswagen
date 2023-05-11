@@ -23,6 +23,7 @@ El vendedor debería :
        String autoSeleccionado="";
        String gamaSeleccionada="";
        String planSeleccionado="";
+       int precioLista=0;
        int precioFinal=0;
        int numeroCuotas=0;
        int cuotas=0;
@@ -91,10 +92,34 @@ El vendedor debería :
         String gama=obtenerDatos.nextLine();
         switch(gama){
             case "1": gamaSeleccionada="BASICA";
+                      switch(autoSeleccionado){
+                          case "POLO": precioLista=gamaBasica[0];
+                          break;
+                          case "VENTO": precioLista=gamaBasica[1];
+                          break;
+                          case "VIRTUS": precioLista=gamaBasica[2];
+                          break;
+                      }  
             break;
             case "2": gamaSeleccionada="INTERMEDIA";
+                      switch(autoSeleccionado){
+                          case "POLO": precioLista=gamaIntermedia[0];
+                          break;
+                          case "VENTO": precioLista=gamaIntermedia[1];
+                          break;
+                          case "VIRTUS": precioLista=gamaIntermedia[2];
+                          break;
+                      }   
             break;
-            case "3": gamaSeleccionada="AVANZADA";
+            case "3": gamaSeleccionada="ALTA";
+                      switch(autoSeleccionado){
+                          case "POLO": precioLista=gamaAlta[0];
+                          break;
+                          case "VENTO": precioLista=gamaAlta[1];
+                          break;
+                          case "VIRTUS": precioLista=gamaAlta[2];
+                          break;
+                      }  
             break;   
         }
 
@@ -117,37 +142,33 @@ El vendedor debería :
             switch(planSeleccionado){
                 case "Efectivo": numeroCuotas = 0;
                                  alicuota = (float) 1.0;   
+                                 precioFinal=(int) ((float) precioLista * alicuota);
+                                 System.out.println("PF: " + precioFinal + ". Cuotas: " + cuotas);// ** ELIMINAR **
                 break;
                 case "70 30": numeroCuotas = 120;
                               alicuota = (float) 1.70;  
+                              precioFinal=(int)((float) precioLista * alicuota);
+                              cuotas=(int) ((int) (float) precioFinal / numeroCuotas);
+                              System.out.println("PF: " + precioFinal + ". Cuotas: " + cuotas);// ** ELIMINAR **
                 break;
                 case "80 20": numeroCuotas = 85;
                               alicuota = (float) 1.85;  
+                              precioFinal=(int)((float) precioLista * alicuota);
+                              cuotas=(int) ((int) (float) precioFinal / numeroCuotas);
+                              System.out.println("PF: " + precioFinal + ". Cuotas: " + cuotas);// ** ELIMINAR **
                 break;
                 case "100% financiado": numeroCuotas = 240;
                                         alicuota = (float) 2;
+                                        precioFinal=(int)((float) precioLista * alicuota);
+                                        cuotas=(int) ((int) (float) precioFinal / numeroCuotas);
+                                        System.out.println("PF: " + precioFinal + ". Cuotas: " + cuotas);// ** ELIMINAR **
                 break;
                 
-            }
-//            switch(planSeleccionado){
-//                case "Efectivo": alicuota = (float) 1.5;   
-//                break;
-//                case "70 30": alicuota = (float) 1.70;  
-//                break;
-//                case "80 20": alicuota = (float) 1.85;  
-//                break;
-//                case "100% financiado": alicuota = (float) 2;
-//                break;
-//                
-//            }
+            }           
             System.out.println("Elegiste el modelo " + autoSeleccionado +", gama " + gamaSeleccionada+ ", plan " + planSeleccionado + ", cuotas " + numeroCuotas + ", alicuota: " + alicuota);
        }
        
-       if(autoSeleccionado.equals("POLO") && gamaSeleccionada.equals("BASICA") && planSeleccionado.equals("70 30")){
-           precioFinal =(int) ((int) gamaBasica[0] *(float) alicuota);
-           cuotas= (int) (precioFinal / numeroCuotas);
-           System.out.println("PF: " + precioFinal + ". Cuotas: " + cuotas);// *** ESTO SE PUEDE BORRAR. ES PARA VER QUE ESTÉ TODO BIEN***
-       }
+
        
        
                 

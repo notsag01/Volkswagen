@@ -26,6 +26,8 @@ El vendedor debería :
        int precioFinal=0;
        int numeroCuotas=0;
        int cuotas=0;
+       float alicuota=0;
+       int cuotaMensual=0;
        
        //ingresando los datos
        
@@ -114,22 +116,37 @@ El vendedor debería :
             
             switch(planSeleccionado){
                 case "Efectivo": numeroCuotas = 0;
+                                 alicuota = (float) 1.0;   
                 break;
                 case "70 30": numeroCuotas = 120;
+                              alicuota = (float) 1.70;  
                 break;
                 case "80 20": numeroCuotas = 85;
+                              alicuota = (float) 1.85;  
                 break;
                 case "100% financiado": numeroCuotas = 240;
+                                        alicuota = (float) 2;
                 break;
                 
             }
-            System.out.println("Elegiste el modelo " + autoSeleccionado +", gama " + gamaSeleccionada+ ", plan " + planSeleccionado + ", cuotas " + numeroCuotas  );
+//            switch(planSeleccionado){
+//                case "Efectivo": alicuota = (float) 1.5;   
+//                break;
+//                case "70 30": alicuota = (float) 1.70;  
+//                break;
+//                case "80 20": alicuota = (float) 1.85;  
+//                break;
+//                case "100% financiado": alicuota = (float) 2;
+//                break;
+//                
+//            }
+            System.out.println("Elegiste el modelo " + autoSeleccionado +", gama " + gamaSeleccionada+ ", plan " + planSeleccionado + ", cuotas " + numeroCuotas + ", alicuota: " + alicuota);
        }
        
        if(autoSeleccionado.equals("POLO") && gamaSeleccionada.equals("BASICA") && planSeleccionado.equals("70 30")){
-           precioFinal =(int) ((int) gamaBasica[0] * 1.70);
-           cuotas= (int) (precioFinal / 120);
-           System.out.println(precioFinal + "." + cuotas);
+           precioFinal =(int) ((int) gamaBasica[0] *(float) alicuota);
+           cuotas= (int) (precioFinal / numeroCuotas);
+           System.out.println("PF: " + precioFinal + ". Cuotas: " + cuotas);// *** ESTO SE PUEDE BORRAR. ES PARA VER QUE ESTÉ TODO BIEN***
        }
        
        

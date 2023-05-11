@@ -15,9 +15,12 @@ public class EjercicioEnClase105 {
 El vendedor debería :
 - Ingresar el nombre del vendedor
 -Ingresar el nombre del cliente , dni y teléfono.*/
+       
+       //FECHA
         Date fecha= new Date();
         System.out.printf("%s %tB %<te, %<tY", "", fecha);        
        
+       //VARIABLES
        String vendedor ="";
        String cliente ="";
        int dni=0;
@@ -33,9 +36,9 @@ El vendedor debería :
        int cuotaMensual=0;
        String entregaAuto="";
        String dominioAutoUsado="";
-       
-       //ingresando los datos
-       
+       //SCANNER
+       Scanner obtenerDatos= new Scanner(System.in);
+       //ingresando los datos       
        System.out.println(" Concesionaria Volkswagen-EL Alemán");
        System.out.println("\n");
        
@@ -58,25 +61,22 @@ El vendedor debería :
                 telefono = tel.nextLong();
                 
                 
-        Scanner obtenerDatos= new Scanner(System.in);
-        
+        //ARRAYS CON MODELOS Y GAMAS
         String modelos []= {"POLO", "VENTO", "VIRTUS"};
         int gamaBasica []= {1000000, 1200000, 1300000};
         int gamaIntermedia []= {1400000, 1500000, 1600000};
         int gamaAlta []= {1700000, 1800000, 1900000};
-        
+        //MOSTRAMOS LOS MODELOS DISPONIBLES POR PANTALLA
         System.out.println("Modelos Disoponibles");
             for (int i=0; i< modelos.length; i++){
-             System.out.println((i + 1) + ". " + modelos[i]);
-             
+             System.out.println((i + 1) + ". " + modelos[i]);             
             }
-            
-        System.out.print("Selecciona un MODELO: ");
-
-        String modelo=obtenerDatos.nextLine();    
         
+        //SELECCIONAMOS MODELO
+        System.out.print("Selecciona un MODELO: ");
+        String modelo=obtenerDatos.nextLine();            
         System.out.println("\n");
-            
+        //GUARDAMOS EL MODELO SELECCIONADO
         switch(modelo){
             case "1": autoSeleccionado=modelos[0];
             break;
@@ -85,14 +85,15 @@ El vendedor debería :
             case "3": autoSeleccionado=modelos[2];
             break;   
         }
-            
-            
+        //MOSTRAMOS POR PANTALLA LAS GAMAS                
         System.out.println("Gamas disponibles: ");
         System.out.println("1- BASICO");
         System.out.println("2- INTERMEDIO");
         System.out.println("3- ALTA");
         System.out.print("Selecciona una GAMA: ");
         String gama=obtenerDatos.nextLine();
+        
+        //POR CADA GAMA Y GUARDAMOS EL PRECIO DE LISTA QUE LE CORRESPONDE
         switch(gama){
             case "1": gamaSeleccionada="BASICA";
                       switch(autoSeleccionado){
@@ -125,23 +126,24 @@ El vendedor debería :
                       }  
             break;   
         }
-
         System.out.println("\n");
-            
+        
+        //CREAMOS LOS PLANES Y LOS MOSTRAMOS POR PANTALLA
         String planes []= {"Efectivo" , "70 30" , "80 20" , "100% financiado"};
         System.out.println("Planes disponibles ");
             for (int p = 0; p < planes.length; p++) {
                 System.out.println((p + 1) + ". " + planes[p]);
             }   
+            
+       //SELECCIONAMOS EL PLAN     
        System.out.print("Selecciona un PLAN: ");
        Scanner sel = new Scanner(System.in);
-       int seleccion = sel.nextInt();
-            
+       int seleccion = sel.nextInt();            
        System.out.println("\n");            
-
        if(seleccion >=1 && seleccion <= planes.length){
             planSeleccionado = planes[seleccion-1];
             
+            // AL PLAN SELECCIONADO LE ASIGNAMOS LAS PROPIEDADES Y CALCULAMOS EL PRECIO FINAL Y LAS CUOTAS QUE SE PAGARA            
             switch(planSeleccionado){
                 case "Efectivo": numeroCuotas = 0;
                                  alicuota = (float) 1.0;   
@@ -167,14 +169,16 @@ El vendedor debería :
                                         System.out.println("PF: " + precioFinal + ". Cuotas: " + cuotas);// ** ELIMINAR **
                 break;
                 
-            }           
+            }
+            //ESTO DE ACA ABAJO SE PUEDE BORRAR, ERA PARA VER QUE ESTABA YENDO TODO BIEN
             System.out.println("Elegiste el modelo " + autoSeleccionado +", gama " + gamaSeleccionada+ ", plan " + planSeleccionado + ", cuotas " + numeroCuotas + ", alicuota: " + alicuota);
        }
+       //PREGUNTAMOS SI VA A ENTREGAR UN AUTO
        System.out.println("Entrega auto usado: ");
        System.out.println("1- SÍ --------------");
        System.out.println("2- NO --------------");
        String autoUsado= obtenerDatos.nextLine();
-       
+       //EN EL CASO DE SER SI, PREGUNTAMOS EL DOMINIO
        switch(autoUsado){
            case "1": entregaAuto = "SI";
                      System.out.print("Dominio?: ");   
@@ -184,7 +188,7 @@ El vendedor debería :
            case "2": entregaAuto="NO";
        }
         System.out.println(dominioAutoUsado);//** ELIMINAR **
-       
+        System.out.println("RECORDEMOS ELIMINAR LOS COMENTARIOS INNECESARIOS!");
        
                
        

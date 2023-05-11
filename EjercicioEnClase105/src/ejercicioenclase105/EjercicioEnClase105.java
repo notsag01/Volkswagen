@@ -29,6 +29,8 @@ El vendedor debería :
        int cuotas=0;
        float alicuota=0;
        int cuotaMensual=0;
+       String entregaAuto="";
+       String dominioAutoUsado="";
        
        //ingresando los datos
        
@@ -167,6 +169,23 @@ El vendedor debería :
             }           
             System.out.println("Elegiste el modelo " + autoSeleccionado +", gama " + gamaSeleccionada+ ", plan " + planSeleccionado + ", cuotas " + numeroCuotas + ", alicuota: " + alicuota);
        }
+       System.out.println("Entrega auto usado: ");
+       System.out.println("1- SÍ --------------");
+       System.out.println("2- NO --------------");
+       String autoUsado= obtenerDatos.nextLine();
+       
+       switch(autoUsado){
+           case "1": entregaAuto = "SI";
+                     System.out.print("Dominio?: ");   
+                     String dominio=obtenerDatos.nextLine();
+                     dominioAutoUsado=dominio;
+           break;
+           case "2": entregaAuto="NO";
+       }
+                     System.out.print(dominioAutoUsado);
+       
+       
+               
        
 
        

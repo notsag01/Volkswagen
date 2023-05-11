@@ -20,10 +20,8 @@ El vendedor debería :
        String cliente ="";
        int dni=0;
        long telefono =0;
-       String gama ="";
        String gamaSeleccionada="";
        String planseleccionado="";
-       String auto="";
        String autoSeleccionado="";
        
        //ingresando los datos
@@ -66,16 +64,16 @@ El vendedor debería :
             
         System.out.print("Selecciona un MODELO: ");
 
-        auto=obtenerDatos.nextLine();    
+        String modelo=obtenerDatos.nextLine();    
         
         System.out.println("\n");
             
-        switch(auto){
-            case "1": autoSeleccionado="POLO";
+        switch(modelo){
+            case "1": autoSeleccionado=modelos[0];
             break;
-            case "2": autoSeleccionado="VENTUS";
+            case "2": autoSeleccionado=modelos[1];
             break;
-            case "3": autoSeleccionado="VIRTUS";
+            case "3": autoSeleccionado=modelos[2];
             break;   
         }
             
@@ -85,7 +83,7 @@ El vendedor debería :
         System.out.println("2- INTERMEDIO");
         System.out.println("3- ALTA");
         System.out.print("Selecciona una GAMA: ");
-        gama=obtenerDatos.nextLine();
+        String gama=obtenerDatos.nextLine();
         switch(gama){
             case "1": gamaSeleccionada="BASICA";
             break;

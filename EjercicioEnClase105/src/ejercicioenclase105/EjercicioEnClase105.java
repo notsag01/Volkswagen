@@ -15,6 +15,8 @@ public class EjercicioEnClase105 {
 El vendedor debería :
 - Ingresar el nombre del vendedor
 -Ingresar el nombre del cliente , dni y teléfono.*/
+        Date fecha= new Date();
+        System.out.printf("%s %tB %<te, %<tY", "", fecha);        
        
        String vendedor ="";
        String cliente ="";
@@ -57,7 +59,6 @@ El vendedor debería :
                 
                 
         Scanner obtenerDatos= new Scanner(System.in);
-        Date fecha= new Date();
         
         String modelos []= {"POLO", "VENTO", "VIRTUS"};
         int gamaBasica []= {1000000, 1200000, 1300000};
@@ -182,7 +183,7 @@ El vendedor debería :
            break;
            case "2": entregaAuto="NO";
        }
-                     System.out.print(dominioAutoUsado);
+        System.out.println(dominioAutoUsado);//** ELIMINAR **
        
        
                

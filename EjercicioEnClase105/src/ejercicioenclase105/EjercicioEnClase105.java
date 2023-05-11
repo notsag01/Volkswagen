@@ -20,9 +20,12 @@ El vendedor debería :
        String cliente ="";
        int dni=0;
        long telefono =0;
-       String gamaSeleccionada="";
-       String planseleccionado="";
        String autoSeleccionado="";
+       String gamaSeleccionada="";
+       String planSeleccionado="";
+       int precioFinal=0;
+       int numeroCuotas=0;
+       int cuotas=0;
        
        //ingresando los datos
        
@@ -93,29 +96,51 @@ El vendedor debería :
             break;   
         }
 
-System.out.println("\n");
+        System.out.println("\n");
             
-            String planes []= {"Efectivo" , "70 30" , "80 20" , "100% financiado"};
-                System.out.println("Planes disponibles ");
-                    for (int p = 0; p < planes.length; p++) {
-                        System.out.println((p + 1) + ". " + planes[p]);
-                    }   
-           System.out.print("Selecciona un PLAN: ");
-            Scanner sel = new Scanner(System.in);
-            int seleccion = sel.nextInt();
+        String planes []= {"Efectivo" , "70 30" , "80 20" , "100% financiado"};
+        System.out.println("Planes disponibles ");
+            for (int p = 0; p < planes.length; p++) {
+                System.out.println((p + 1) + ". " + planes[p]);
+            }   
+       System.out.print("Selecciona un PLAN: ");
+       Scanner sel = new Scanner(System.in);
+       int seleccion = sel.nextInt();
             
-System.out.println("\n");            
-            
-                if(seleccion >=1 && seleccion <= planes.length){
-                    planseleccionado = planes[seleccion-1];
-                        System.out.println("Elegiste el modelo " + autoSeleccionado +", gama " + gamaSeleccionada+ ", plan " + planseleccionado  );
-                }
-            
-}
-                    
+       System.out.println("\n");            
 
+       if(seleccion >=1 && seleccion <= planes.length){
+            planSeleccionado = planes[seleccion-1];
+            
+            switch(planSeleccionado){
+                case "Efectivo": numeroCuotas = 0;
+                break;
+                case "70 30": numeroCuotas = 120;
+                break;
+                case "80 20": numeroCuotas = 85;
+                break;
+                case "100% financiado": numeroCuotas = 240;
+                break;
                 
+            }
+            System.out.println("Elegiste el modelo " + autoSeleccionado +", gama " + gamaSeleccionada+ ", plan " + planSeleccionado + ", cuotas " + numeroCuotas  );
+       }
        
-    }
+       if(autoSeleccionado.equals("POLO") && gamaSeleccionada.equals("BASICA") && planSeleccionado.equals("70 30")){
+           precioFinal =(int) ((int) gamaBasica[0] * 1.70);
+           cuotas= (int) (precioFinal / 120);
+           System.out.println(precioFinal + "." + cuotas);
+       }
+       
+       
+                
+                
+                
+                
+                
+                
+            
+    }                                       
+}
     
 
